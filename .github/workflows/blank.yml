@@ -26,7 +26,7 @@ jobs:
         run: |
             export TESTVAR="hello"
             env
-            echo "::set-output name=test::${{ env.TESTVAR }}"
+            echo "::set-output name=test::${TESTVAR}"
       - id: step2
         run: echo "::set-output name=test::world"
   job2:

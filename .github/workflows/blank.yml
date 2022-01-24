@@ -23,7 +23,10 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
     steps:
       - id: step1
-        run: echo "::set-output name=test::hello"
+        run: |
+            export TESTVAR="hello"
+            env
+            echo "::set-output name=test::{{ env.TESTVAR }}"
       - id: step2
         run: echo "::set-output name=test::world"
   job2:
